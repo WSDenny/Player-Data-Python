@@ -1,1 +1,1 @@
-# Goal: Read in and organize csv files containing NBA and NFL player information 
+# Goal: extract, organize, and alter csv files containing NBA and NFL player information 
