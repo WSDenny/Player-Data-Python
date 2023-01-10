@@ -1,2 +1,1 @@
-# reading data files and organizing them
-# test 2
+# Goal: Read in and organize csv files containing NBA and NFL player information 
