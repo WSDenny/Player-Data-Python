@@ -43,7 +43,7 @@ print(array)
 NFL_data = pd.read_csv("NFL.csv")               #reading in NFL csv
 #print(NFL_data)
 
-NFL_full = NFL_data['full_name']                #setting each columb to a variable
+NFL_full = NFL_data['full_name']                #setting each column to a variable
 #print(NFL_full)
 NFL_num = NFL_data['number']
 #print(NFL_num)
