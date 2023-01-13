@@ -1,11 +1,26 @@
 # Goal: extract, organize, and alter csv files containing NBA and NFL player information 
 import pandas as pd
-NBA_data = pd.read_csv("NBA.csv")               #reading in NBA csv
-print(NBA_data)
+import numpy as np
 
-NBA_first = NBA_data['#LastName']               #setting each column to its own variable
+def selectionSort(array, size):
+    
+    for ind in range(size):
+        min_index = ind
+ 
+        for j in range(ind + 1, size):
+            # select the minimum element in every iteration
+            if array[j] < array[min_index]:
+                min_index = j
+         # swapping the elements to sort the array
+        (array[ind], array[min_index]) = (array[min_index], array[ind])
+
+
+NBA_data = pd.read_csv("NBA.csv")               #reading in NBA csv
+#print(NBA_data)
+
+NBA_last = NBA_data['#LastName']               #setting each column to its own variable
 #print(NBA_first)
-NBA_last = NBA_data['#FirstName']
+NBA_first = NBA_data['#FirstName']
 #print(NBA_last)
 NBA_jers = NBA_data['#Jersey Num']
 #print(NBA_jers)
@@ -18,8 +33,15 @@ NBA_wei = NBA_data['#Weight']
 NBA_bdate = NBA_data['#Birth Date']
 #print(NBA_bdate)
 
+NBA_jers = NBA_jers.dropna()                    #drop null values if any
+array = (NBA_jers.to_numpy())                   #convert column to array
+size = len(array)
+
+selectionSort(array, size)                      #run selection sort TC: O(n^2) Space: O(1)
+print(array)
+
 NFL_data = pd.read_csv("NFL.csv")               #reading in NFL csv
-print(NFL_data)
+#print(NFL_data)
 
 NFL_full = NFL_data['full_name']                #setting each columb to a variable
 #print(NFL_full)
