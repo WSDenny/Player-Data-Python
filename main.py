@@ -38,7 +38,7 @@ array = (NBA_jers.to_numpy())                   #convert column to array
 size = len(array)
 
 selectionSort(array, size)                      #run selection sort TC: O(n^2) Space: O(1)
-print(array)
+#print(array)
 
 NFL_data = pd.read_csv("NFL.csv")               #reading in NFL csv
 #print(NFL_data)
@@ -57,3 +57,14 @@ NFL_bdate = NFL_data['date_of_birth']
 #print(fname)
 NFL_team = NFL_data['team']
 #print(fname)
+
+#NBA_data[]
+for x in range(4):
+    if x % 2 == 1:                              #choosing all the NFL players with odd jersey numbers
+        print(NFL_oddNum = (NFL_data[NFL_data['number'].isin([x])]))
+
+for y in range(100):
+    if y % 2 == 1:                              #choosing all the NBA players with odd jersey numbers
+        print(NBA_oddNum = (NBA_data[NBA_data['#Jersey Num'].isin([y])]))
+
+                                                #save both odd sets as its own data frame
