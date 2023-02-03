@@ -63,8 +63,8 @@ for x in range(10):
     if x % 2 == 1:                              #choosing all the NFL players with odd jersey numbers between 0 and 10
         print(NFL_data[NFL_data['number'].isin([x])])
 
-for y in range(10, 20):
-    if y % 2 == 1:                              #choosing all the NBA players with odd jersey numbers between 10 and 20
+for y in range(10, 21):
+    if y % 2 == 0:                              #choosing all the NBA players with even jersey numbers between 10 and 20
         print(NBA_data[NBA_data['#Jersey Num'].isin([y])])
 
                                                 #save both odd sets as its own data frame
