@@ -59,12 +59,12 @@ NFL_team = NFL_data['team']
 #print(fname)
 
 #NBA_data[]
-for x in range(4):
-    if x % 2 == 1:                              #choosing all the NFL players with odd jersey numbers
-        print(NFL_oddNum = (NFL_data[NFL_data['number'].isin([x])]))
+for x in range(10):
+    if x % 2 == 1:                              #choosing all the NFL players with odd jersey numbers between 0 and 10
+        print(NFL_data[NFL_data['number'].isin([x])])
 
-for y in range(100):
-    if y % 2 == 1:                              #choosing all the NBA players with odd jersey numbers
-        print(NBA_oddNum = (NBA_data[NBA_data['#Jersey Num'].isin([y])]))
+for y in range(10, 20):
+    if y % 2 == 1:                              #choosing all the NBA players with odd jersey numbers between 10 and 20
+        print(NBA_data[NBA_data['#Jersey Num'].isin([y])])
 
                                                 #save both odd sets as its own data frame
