@@ -67,6 +67,7 @@ for y in range(10, 21):
     if y % 2 == 0:                              #choosing all the NBA players with even jersey numbers between 10 and 20
         print(NBA_data[NBA_data['#Jersey Num'].isin([y])])
 """
+
 evens_list = []                                             #creating empty sets for storage
 odds_list = []
 jers_list = NBA_jers.values.tolist()                        #converting dataframes to lists
