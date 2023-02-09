@@ -83,3 +83,12 @@ for x in range(1, 101, 2):
 #print(odds_list)
 odds_df = pd.DataFrame(odds_list, columns = ['odds'])       #converting list into dataframe
 print(odds_df)
+
+for x in range(0, 101, 2):
+    for y in range(len(num_list)):                          #selecting even numbers from list and storing them
+        if x == num_list[y]:
+            evens_list.append(num_list[y])
+
+#print(evens_list)
+evens_df = pd.DataFrame(evens_list, columns = ['evens'])    #converting list into dataframe
+print(evens_df)
