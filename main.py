@@ -34,10 +34,10 @@ NBA_bdate = NBA_data['#Birth Date']
 #print(NBA_bdate)
 
 NBA_jers = NBA_jers.dropna()                    #drop null values if any
-array = (NBA_jers.to_numpy())                   #convert column to list
-size = len(array)
+jerlist = (NBA_jers.to_numpy())                 #convert column to list
+size = len(jerlist)
 
-selectionSort(array, size)                      #run selection sort TC: O(n^2) Space: O(1)
+selectionSort(jerlist, size)                      #run selection sort TC: O(n^2) Space: O(1)
 #print(array)
 
 NFL_data = pd.read_csv("NFL.csv")               #reading in NFL csv
@@ -82,7 +82,7 @@ for x in range(1, 101, 2):
 
 #print(odds_list)
 odds_df = pd.DataFrame(odds_list, columns = ['odds'])       #converting list into dataframe
-print(odds_df)
+#print(odds_df)
 
 for x in range(0, 101, 2):
     for y in range(len(num_list)):                          #selecting even numbers from list and storing them
@@ -91,4 +91,15 @@ for x in range(0, 101, 2):
 
 #print(evens_list)
 evens_df = pd.DataFrame(evens_list, columns = ['evens'])    #converting list into dataframe
-print(evens_df)
+#print(evens_df)
+
+NFL_teamlist = NFL_team.tolist()                            #convert team column into list
+team_dict = {}                                              #create empty dictionary
+
+for i in NFL_teamlist:
+    try:
+        team_dict[i] += 1                                   #count the number of key values
+    except:
+        team_dict[i] = 1
+
+print('BAL has', team_dict['BAL'], 'Players in the database')
