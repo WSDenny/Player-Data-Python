@@ -38,7 +38,7 @@ jerarray = (NBA_jers.to_numpy())                #convert column to a numpy array
 size = len(jerarray)
 
 selectionSort(jerarray, size)                   #run selection sort TC: O(n^2) Space: O(1)
-#print(array)
+#print(jerarray)
 
 NFL_data = pd.read_csv("NFL.csv")               #reading in NFL csv
 #print(NFL_data)
