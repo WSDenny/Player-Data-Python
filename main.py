@@ -34,10 +34,10 @@ NBA_bdate = NBA_data['#Birth Date']
 #print(NBA_bdate)
 
 NBA_jers = NBA_jers.dropna()                    #drop null values if any
-jerlist = (NBA_jers.to_numpy())                 #convert column to list
-size = len(jerlist)
+jerarray = (NBA_jers.to_numpy())                #convert column to a numpy array
+size = len(jerarray)
 
-selectionSort(jerlist, size)                      #run selection sort TC: O(n^2) Space: O(1)
+selectionSort(jerarray, size)                   #run selection sort TC: O(n^2) Space: O(1)
 #print(array)
 
 NFL_data = pd.read_csv("NFL.csv")               #reading in NFL csv
