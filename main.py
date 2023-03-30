@@ -49,7 +49,7 @@ NFL_wei = NFL_data['weight_in_lbs']
 NFL_team = NFL_data['team']
 #print(fname)
 
-"""
+
 for x in range(10):
     if x % 2 == 1:                              #choosing all the NFL players with odd jersey numbers between 0 and 10
         print((NFL_data[NFL_data['number'].isin([x])]))
@@ -57,7 +57,7 @@ for x in range(10):
 for y in range(10, 21):
     if y % 2 == 0:                              #choosing all the NBA players with even jersey numbers between 10 and 20
         print(NBA_data[NBA_data['#Jersey Num'].isin([y])])
-"""
+
 
 evens_list = []                                             #creating empty sets for storage
 odds_list = []
