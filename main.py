@@ -1,6 +1,9 @@
 # Goal: extract, organize, and alter csv files containing NBA and NFL player information 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+from collections import Counter
+import Stats as st
 
 def selectionSort(array, size):
     
@@ -18,20 +21,12 @@ def selectionSort(array, size):
 NBA_data = pd.read_csv("NBA.csv")               #reading in NBA csv
 #print(NBA_data)
 
-NBA_last = NBA_data['#LastName']               #setting each column to its own variable
-#print(NBA_first)
-NBA_first = NBA_data['#FirstName']
-#print(NBA_last)
 NBA_jers = NBA_data['#Jersey Num']
 #print(NBA_jers)
-NBA_pos = NBA_data['#Position']
-#print(NBA_pos)
 NBA_hei = NBA_data['#Height']
 #print(NBA_hei)
 NBA_wei = NBA_data['#Weight']
 #print(NBA_wei)
-NBA_bdate = NBA_data['#Birth Date']
-#print(NBA_bdate)
 
 NBA_jers = NBA_jers.dropna()                    #drop null values if any
 jerarray = (NBA_jers.to_numpy())                #convert column to a numpy array
@@ -43,8 +38,6 @@ selectionSort(jerarray, size)                   #run selection sort TC: O(n^2) S
 NFL_data = pd.read_csv("NFL.csv")               #reading in NFL csv
 #print(NFL_data)
 
-NFL_full = NFL_data['full_name']                #setting each column to a variable
-#print(NFL_full)
 NFL_num = NFL_data['number']
 #print(NFL_num)
 NFL_pos = NFL_data['position']
@@ -53,8 +46,6 @@ NFL_hei = NFL_data['height_in_inches']
 #print(NFL_hei)
 NFL_wei = NFL_data['weight_in_lbs']
 #print(NFL_wei)
-NFL_bdate = NFL_data['date_of_birth']
-#print(fname)
 NFL_team = NFL_data['team']
 #print(fname)
 
@@ -102,4 +93,23 @@ for i in NFL_teamlist:
     except:
         team_dict[i] = 1
 
-print('BAL has', team_dict['BAL'], 'Players in the database')
+team = input('Input a team acronym: ')                      #determine number of players from any input team
+
+try:
+    print('team has', team_dict[team], 'Players in the database')   
+except:
+    print('That team acronym does not exist')
+
+print('The average weight of players in the NFL database is:', round(NFL_wei.mean(), 2))        #average weight for all NFL players
+
+plt.hist(NFL_wei, edgecolor = 'black', bins=30)                                                 #histogram of weight for NFL
+plt.xticks([i*10 for i in range(15, 38)])
+plt.title('Histogram of NFL Weights')
+plt.ylabel('# of Players')
+plt.xlabel('Weight in lbs')
+plt.show()
+
+NFL_wei_arr = NFL_wei.to_numpy()                #creating numpy arrays for statistical analysis
+NFL_hei_arr = NFL_hei.to_numpy()
+
+print('Correlation Coefficient between height and weight:', st.correlation(NFL_hei_arr, NFL_wei_arr))           #correlation coefficient from Stats.py
