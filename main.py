@@ -113,3 +113,6 @@ NFL_wei_arr = NFL_wei.to_numpy()                #creating numpy arrays for stati
 NFL_hei_arr = NFL_hei.to_numpy()
 
 print('Correlation Coefficient between height and weight:', st.correlation(NFL_hei_arr, NFL_wei_arr))           #correlation coefficient from Stats.py
+
+pos = input('Input a position acronym: ')
+print('The average weight for', pos, 'in the NBA is:', round(NBA_data['#Weight'][NBA_data['#Position'] == pos].mean(), 2))
