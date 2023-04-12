@@ -126,8 +126,6 @@ print('The average weight for', pos, 'in the NBA is:', round(NBA_data['#Weight']
 NFL_pos = NFL_pos.astype('category')                    #changing position labels to 0, 1, 2.. etc.
 NFL_pos = NFL_pos.cat.codes
 
-NFL_pos_arr = NFL_pos.to_numpy()
-
 scaler = StandardScaler()
 
 NFL_train = NFL_data.drop(['number', 'full_name', 'position', 'date_of_birth', 'team'], axis=1)         #dropping unnecessary columns for training and testing
