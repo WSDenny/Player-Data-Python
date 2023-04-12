@@ -2,8 +2,13 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from collections import Counter
+#from collections import Counter
 import Stats as st
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report
+from sklearn.preprocessing import StandardScaler
+
 
 def selectionSort(array, size):
     
@@ -116,3 +121,27 @@ print('Correlation Coefficient between height and weight:', st.correlation(NFL_h
 
 pos = input('Input a position acronym: ')
 print('The average weight for', pos, 'in the NBA is:', round(NBA_data['#Weight'][NBA_data['#Position'] == pos].mean(), 2))
+
+
+NFL_pos = NFL_pos.astype('category')                    #changing position labels to 0, 1, 2.. etc.
+NFL_pos = NFL_pos.cat.codes
+
+NFL_pos_arr = NFL_pos.to_numpy()
+
+scaler = StandardScaler()
+
+NFL_train = NFL_data.drop(['number', 'full_name', 'position', 'date_of_birth', 'team'], axis=1)         #dropping unnecessary columns for training and testing
+
+X = NFL_train               #setting X and Y
+Y = NFL_pos
+
+X_train, X_test, Y_train, Y_test = train_test_split(X,Y, test_size=0.3,random_state=21)    #split data
+
+X_train_scaled = scaler.fit_transform(X_train)              #scaling training and testing data for higher accuracy
+X_test_scaled = scaler.fit_transform(X_test)
+
+knn = KNeighborsClassifier(n_neighbors=20)              #knn classifier
+knn.fit(X_train_scaled, Y_train)                        #fit the data
+y_pred = knn.predict(X_test_scaled)                     #predict testing data
+print(knn.score(X_test_scaled, Y_test))                 #score the accuracy of predictions
+print(classification_report(Y_test, y_pred))            #report showing accuracy statistics, for higher accuracy more features needed
