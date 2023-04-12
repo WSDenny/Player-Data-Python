@@ -1,13 +1,14 @@
-# Goal: extract, organize, and alter csv files containing NBA and NFL player information 
+# Goal: extract, seperate, alter, and perform statistics on csv files containing NBA and NFL player information 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-#from collections import Counter
 import Stats as st
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
 from sklearn.preprocessing import StandardScaler
+import warnings
+warnings.filterwarnings('ignore')
 
 
 def selectionSort(array, size):
